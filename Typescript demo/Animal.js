@@ -8,14 +8,14 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var AnimalReadonly = (function () {
-    function AnimalReadonly(name) {
+var Animal = (function () {
+    function Animal(name) {
         this.name = name;
     }
-    AnimalReadonly.prototype.sayHello = function () {
+    Animal.prototype.sayHello = function () {
         return 'Hello from ' + this.name;
     };
-    return AnimalReadonly;
+    return Animal;
 }());
 var Cat = (function (_super) {
     __extends(Cat, _super);
@@ -26,7 +26,7 @@ var Cat = (function (_super) {
         return _super.prototype.sayHello.call(this) + ' the cat';
     };
     return Cat;
-}(AnimalReadonly));
+}(Animal));
 var cat = new Cat('Pesho');
 var hello = cat.sayHello();
 console.log(hello);

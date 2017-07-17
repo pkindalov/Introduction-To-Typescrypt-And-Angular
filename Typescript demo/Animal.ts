@@ -1,4 +1,4 @@
-class AnimalReadonly{
+class Animal{
     private name: string
 
     constructor(name: string){
@@ -10,7 +10,7 @@ class AnimalReadonly{
     }
 }
 
-class Cat extends AnimalReadonly{
+class Cat extends Animal{
     constructor(name: string){
         super(name);
     }
