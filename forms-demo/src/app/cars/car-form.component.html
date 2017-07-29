@@ -1,0 +1,80 @@
+<div class="container">
+    <h1>Car form: </h1>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+                <form (ngSubmit)="submitCar()" #carForm="ngForm">
+                    <div class="form-group">
+                        <label for="make">Make:</label>
+                        <input
+                           type="text" 
+                           class="form-control" 
+                           id="make" required="required" 
+                           name="make"
+                           [(ngModel)]="car.make"
+                           #make="ngModel"
+                           />
+                           <div [hidden]="make.valid || make.pristine" class="alert alert-danger">
+                                You have some error.
+                           </div>
+                           <br />
+
+                           <!-- {{make.className}} -->
+                           <!-- {{car.make}} -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">Model:</label>
+                        <input
+                         type="text" 
+                         class="form-control"
+                         id="model"
+                        required="required"
+                        name="model"
+                        [(ngModel)]="car.model"
+                            />
+
+                        <!-- {{car.model}} -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="engine">Engine:</label>
+                        <select 
+                            class="form-control"   
+                            id="engine" 
+                            required="required"
+                            name="engine"
+                            [(ngModel)]="car.engine"
+                            >
+                                <option *ngFor="let engine of engines" [value]="engine">
+                                    {{engine}}
+                                </option>
+                            </select>
+
+                            <!-- {{car.engine}} -->
+                    </div>
+
+                   
+
+                    <div class="form-group">
+                        <label for="milieage">Milieage:</label>
+                        <input
+                         type="text" 
+                         class="form-control"
+                          id="milieage" 
+                          required="required" 
+                          name="milieage"
+                          [(ngModel)]="car.milieage"
+                          />
+
+                          <!-- {{car.milieage}} -->
+                    </div>
+
+
+                    <button type="submit"  [disabled]="!carForm.form.valid" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-success" (click)="clearCar()">New Car</button>
+                </form>
+        </div>
+    </div>
+</div>
